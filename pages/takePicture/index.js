@@ -31,6 +31,27 @@ Page({
     })
   },
 
+  // 选取本地图片
+  onChooseImage(){
+    wx.chooseImage({
+      // 可选择图片数量
+      count: 1,
+      // 选择原图
+      sizeType: ['original'],
+      // 图片的来源
+      sourceType: ['album'],
+      success: (res) => {
+        // 设置展示图片路径
+        this.setData({
+          tempImagePath: res.tempFilePaths[0]
+        },() =>{
+          // 调用检测人脸信息函数
+          this.getFaceInfo()
+        })
+      }
+    })
+  },
+
   // 拍照
   onTakePicture(){
     // 创建一个camera内容对象
@@ -86,6 +107,13 @@ Page({
         face_field: 'age,gender,beauty,expression,glasses,emotion'
       },
       success:(res) => {
+        // 检验是否获取到人脸
+        if (res.data.result === null){
+          return wx.showToast({
+            title: '未检测到人脸',
+            icon: 'none'
+          })
+        }
         // 更新图片检测信息
         this.setData({
           faceInfo: res.data.result.face_list[0]

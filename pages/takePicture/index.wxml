@@ -2,7 +2,7 @@
 <camera wx:if="{{!tempImagePath}}" class="camera" device-position="{{ devicePosition }}" flash="off">
   <!-- 覆盖按钮 -->
   <cover-view class="coverView">
-    <cover-image src="/images/icon/album.png"></cover-image>
+    <cover-image bindtap="onChooseImage" src="/images/icon/album.png"></cover-image>
     <cover-image bindtap = "onTakePicture" src="/images/icon/camera.png"></cover-image>
     <cover-image bindtap = "onChangeDevicePosition" src="/images/icon/reverse.png"></cover-image>
   </cover-view>
