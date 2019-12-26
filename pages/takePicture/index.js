@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    devicePosition: "front"
   },
 
   /**
@@ -62,5 +62,13 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  
+  // 改变摄像头方向
+  onChangeDevicePosition(){
+    console.log(this.data)
+    this.setData({
+      devicePosition: this.data.devicePosition === "front" ? "back" : "front"
+    })
   }
 })

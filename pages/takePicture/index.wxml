@@ -1,8 +1,9 @@
-<!--pages/takePicture/index.wxml-->
-<camera class="camera" device-position="front" flash="off">
+<!-- 拍照页 -->
+<camera class="camera" device-position="{{ devicePosition }}" flash="off">
+  <!-- 覆盖按钮 -->
   <cover-view class="coverView">
     <cover-image src="/images/icon/album.png"></cover-image>
     <cover-image src="/images/icon/camera.png"></cover-image>
-    <cover-image src="/images/icon/reverse.png"></cover-image>
+    <cover-image bindtap = "onChangeDevicePosition" src="/images/icon/reverse.png"></cover-image>
   </cover-view>
 </camera>
