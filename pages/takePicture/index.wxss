@@ -1,4 +1,4 @@
-/* pages/takePicture/index.wxss */
+/* 拍照页样式 */
 .camera{
   height: 100vh;
   background-color: #ccc;
@@ -15,4 +15,18 @@
 
 .coverView cover-image{
   width: 120rpx;
+}
+
+/* 照片展示页 */
+.chooseImage{
+  height: 100vh;
+  width: 100%;
+  position: relative;
+}
+.btn{
+  position: absolute;
+  width: 75%;
+  bottom: 80rpx;
+  left: 50%;
+  transform: translateX(-50%);
 }

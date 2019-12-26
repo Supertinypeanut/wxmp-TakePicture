@@ -1,5 +1,5 @@
 <!-- 拍照页 -->
-<camera class="camera" device-position="{{ devicePosition }}" flash="off">
+<camera wx:if="{{!tempImagePath}}" class="camera" device-position="{{ devicePosition }}" flash="off">
   <!-- 覆盖按钮 -->
   <cover-view class="coverView">
     <cover-image src="/images/icon/album.png"></cover-image>
@@ -7,3 +7,8 @@
     <cover-image bindtap = "onChangeDevicePosition" src="/images/icon/reverse.png"></cover-image>
   </cover-view>
 </camera>
+
+<!-- 拍摄图片展示页 -->
+<image wx:else src="{{tempImagePath}}" mode="aspectFill" class="chooseImage">
+  <button type="primary" class="btn" bindtap="onClearSrc">重新选取照片</button>
+</image>

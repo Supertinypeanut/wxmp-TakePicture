@@ -24,6 +24,13 @@ Page({
     })
   },
 
+  // 清除src
+  onClearSrc(){
+    this.setData({
+      tempImagePath: ''
+    })
+  },
+
   // 拍照
   onTakePicture(){
     // 创建一个camera内容对象
@@ -76,11 +83,11 @@ Page({
       data:{
         image_type:'BASE64',
         image: base64Img,
-        face_field: 'age,beauty,expression,face_shape,gender,glasses,landmark,landmark150,race,quality,eye_status,emotion,face_type'
+        face_field: 'age,gender,beauty,expression,glasses,emotion'
       },
-      success:function(res){
+      success:(res) => {
         // 更新图片检测信息
-        wx.setData({
+        this.setData({
           faceInfo: res.data.result.face_list[0]
         })
       },
