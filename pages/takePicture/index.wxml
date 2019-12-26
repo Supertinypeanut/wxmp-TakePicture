@@ -1,0 +1,2 @@
+<!--pages/takePicture/index.wxml-->
+<camera class="camera" device-position="front" flash="off"></camera>

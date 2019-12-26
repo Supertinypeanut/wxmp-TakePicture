@@ -1,0 +1,5 @@
+/* pages/takePicture/index.wxss */
+.camera{
+  height: 100vh;
+  background-color: #ccc;
+}

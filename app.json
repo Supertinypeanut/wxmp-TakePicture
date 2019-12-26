@@ -1,0 +1,13 @@
+{
+  "pages": [
+    "pages/takePicture/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#4a7",
+    "navigationBarTitleText": "花生测颜",
+    "navigationBarTextStyle": "white"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}
