@@ -10,5 +10,19 @@
 
 <!-- 拍摄图片展示页 -->
 <image wx:else src="{{tempImagePath}}" mode="aspectFill" class="chooseImage">
+  <view class="faceInfo">
+    <view class="row">
+      <text>年龄：{{faceInfo.age}}岁</text>
+      <text>性别：{{map.gender[faceInfo.gender.type]}}</text>
+    </view>
+    <view class="row">
+      <text>分数：{{faceInfo.beauty}}分</text>
+      <text>表情：{{map.expression[faceInfo.expression.type]}} </text>
+    </view>
+    <view class="row">
+      <text>是否戴眼镜：{{map.glasses[faceInfo.glasses.type]}}</text>
+      <text>情绪：{{map.emotion[faceInfo.emotion.type]}}</text>
+    </view>
+  </view>
   <button type="primary" class="btn" bindtap="onClearSrc">重新选取照片</button>
 </image>

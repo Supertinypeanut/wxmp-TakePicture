@@ -29,4 +29,22 @@
   bottom: 80rpx;
   left: 50%;
   transform: translateX(-50%);
+  opacity: .7;
+}
+.faceInfo{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 400rpx;
+  width: 75%;
+  background-color: rgba(150, 144, 144, 0.7);
+  border-radius: 10rpx;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+.row{
+  display: flex;
+  justify-content: space-around;
 }

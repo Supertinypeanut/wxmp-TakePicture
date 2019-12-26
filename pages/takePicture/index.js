@@ -13,7 +13,35 @@ Page({
     // 拍照生成的图片路径
     tempImagePath: '',
     // 图片检测信息
-    faceInfo: null
+    faceInfo: null,
+    // 映射关系
+    map: {
+      gender: {
+        male: '男性',
+        female: '女性'
+      },
+      expression: {
+        none: '不笑',
+        smile: '微笑',
+        laugh: '大笑'
+      },
+      glasses: {
+        none: '无眼镜',
+        common: '普通眼镜',
+        sun: '墨镜'
+      },
+      emotion: {
+        angry: '愤怒',
+        disgust: '厌恶',
+        fear: '恐惧',
+        happy: '高兴',
+        sad: '伤心',
+        surprise: '惊讶',
+        neutral: '无表情',
+        pouty: '撅嘴',
+        grimace: '鬼脸'
+      }
+    }
   },
   
   // 改变摄像头方向
@@ -109,11 +137,19 @@ Page({
       success:(res) => {
         // 检验是否获取到人脸
         if (res.data.result === null){
-          return wx.showToast({
-            title: '未检测到人脸',
-            icon: 'none'
+          // 清除当前检测图片
+          this.setData({
+            tempImagePath:''
+          },()=>{
+            // 提示用户
+            wx.showToast({
+              title: '未检测到人脸',
+              icon: 'none'
+            })
           })
+          return 
         }
+      
         // 更新图片检测信息
         this.setData({
           faceInfo: res.data.result.face_list[0]
