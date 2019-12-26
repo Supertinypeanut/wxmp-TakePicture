@@ -5,7 +5,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    devicePosition: "front"
+    // 摄像头方向
+    devicePosition: "front",
+    // 拍照生成的图片路径
+    tempImagePath: ''
   },
 
   /**
@@ -70,5 +73,35 @@ Page({
     this.setData({
       devicePosition: this.data.devicePosition === "front" ? "back" : "front"
     })
+  },
+
+  // 拍照
+  onTakePicture(){
+    // 创建一个camera内容对象
+    const ctxt = wx.createCameraContext()
+    // 调用拍照
+    ctxt.takePhoto({
+      quality: 'high',
+      success:function(res){
+
+        // 检验是否拍照成功
+        if( res.errMsg !== "operateCamera:ok"){
+          return wx.showToast({
+            title: '拍照失败！',
+            icon: 'none'
+          })
+        }
+
+        // 更新处理图片路径
+        this.setData({
+          tempImagePath : res.tempImagePath
+        })
+
+        console.log(88)
+      }
+    })
+
+
   }
+
 })
